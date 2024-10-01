@@ -12,8 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('masuks', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->char('kd_masuk',length:5)->primary();
+            $table->date('tgl_masuk');
+            $table->char('kd_supplier',length:5);
+            $table->integer('total_masuk');
+            $table->timestamps(); 
         });
     }
 

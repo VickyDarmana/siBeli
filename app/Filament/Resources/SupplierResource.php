@@ -23,7 +23,20 @@ class SupplierResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Forms\Components\TextInput::make('kd_supplier')
+                ->label('Kode Supplier')
+                ->required()
+                ->maxLength(5),
+
+                Forms\Components\TextInput::make('nama_supplier')
+                ->label('Nama Supplier')
+                ->required()
+                ->maxLength(30),
+
+                Forms\Components\TextInput::make('alamat')
+                ->label('Alamat')
+                ->required()
+                ->maxLength(50), 
             ]);
     }
 
@@ -31,7 +44,9 @@ class SupplierResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('kd_supplier')->label('Kode Supplier')->sortable()->searchable(),
+                Tables\Columns\TextColumn::make('nama_supplier')->label('Nama Supplier')->sortable()->searchable(),
+                Tables\Columns\TextColumn::make('alamat')->label('Alamat')->sortable()->searchable(),
             ])
             ->filters([
                 //
